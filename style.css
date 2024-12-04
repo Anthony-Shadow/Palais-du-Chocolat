@@ -1,0 +1,129 @@
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+.Container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px 0;
+}
+
+header img {
+    width: 150px;
+}
+
+.navheader {
+    flex-grow: 1;  
+    display: flex;
+    justify-content: center; 
+}
+
+.navheader ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;  
+    padding: 0;
+    margin: 0;
+}
+
+.navheader ul li {
+    margin: 0 20px;  
+}
+
+.navheader ul li a {
+    color: #edac34;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;  
+}
+
+main {
+    padding: 40px 0;
+}
+
+h1, h2, h3, h4 {
+    color: #3E2723;
+}
+
+.section {
+    margin-bottom: 40px;
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+}
+
+.section div {
+    min-width: 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: start;
+}
+
+.section img {
+    width: 100%;
+    max-width: 300px;
+}
+
+footer {
+    background-color: #3E2723;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.btn-devis {
+    display: inline-block;
+    background-color: #FF7043;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navheader ul li {
+    margin: 0 30px;  
+}
+
+.navheader ul li a {
+    color: #edac34;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;  
+}
+
+
+.filter{
+filter: brightness(1.75);
+}
+
+
+header img {
+    width: 200px; 
+}
+
+
+
+
+
+
+.baniere{
+    width: 100%;
+}
+
+
