@@ -21,18 +21,7 @@ function afficher(donne) {
 
 
 
-    let bene = donne.listeBeneficesClients;
-
-    let listeI = "";
-console.log(bene)
-
-
-    bene.forEach(benef => {
-       listeI+=`<li>${benef}</li>`
-    });
-    let Bénéfices = document.querySelector(`.Bénéfices`)
-    Bénéfices.innerHTML+=`${listeI}`
-
+   
 
 
 
@@ -58,11 +47,11 @@ console.log(bene)
         let titre = prod.titre;
         let presen = prod.presentation;
         let image = prod.imageurl;
+        
 
         let ContainerProduits = document.querySelector(`.ContainerProduits`)
-        container.innerHTML += `
+        ContainerProduits.innerHTML += `
         <section class="section">
-        <h2>Nos Produits</h2>
                     <div>
               <img
                 src="${image}"
@@ -73,7 +62,22 @@ console.log(bene)
             </section>
             `
      });
-     donne.clients.forEach(clients => {
+   
+
+ let bene = donne.listeBeneficesClients;
+
+    let listeI = "";
+console.log(bene)
+
+
+    bene.forEach(benef => {
+       listeI+=`<li>${benef}</li>`
+    });
+    let Bénéfices = document.querySelector(`.Bénéfices`)
+    Bénéfices.innerHTML+=`${listeI}`
+
+
+      donne.clients.forEach(clients => {
         console.log(clients.titre);
         console.log(clients.presentation);
         console.log(clients.imageurl);
@@ -83,8 +87,8 @@ console.log(bene)
         let commentaire = clients.commentaire;
         let note =clients.note;
 
-        let ContainerProduits = document.querySelector(`.avis`)
-        container.innerHTML += ` <div>
+        let avis  = document.querySelector(`.avis`)
+        avis.innerHTML += ` <div>
             <h4>${nom}</h4>
             <p>${presentation}</p>
             <p>${commentaire}</p>
@@ -93,10 +97,6 @@ console.log(bene)
           <div>
          `
      })
-
-
-
-    
 
 
 
