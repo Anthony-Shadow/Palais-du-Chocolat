@@ -21,12 +21,9 @@ function afficher(donne) {
 
 
 
-   
 
 
-
-
-
+//----- titre
 
     let container = document.querySelector(`.Container`)
     container.innerHTML += `
@@ -49,9 +46,12 @@ function afficher(donne) {
         let image = prod.imageurl;
         
 
+
+        // ------ produits
+
         let ContainerProduits = document.querySelector(`.ContainerProduits`)
         ContainerProduits.innerHTML += `
-        <section class="section">
+        <section class="section flex">
                     <div>
               <img
                 src="${image}"
@@ -64,6 +64,9 @@ function afficher(donne) {
      });
    
 
+
+
+     //------ bénéfices
  let bene = donne.listeBeneficesClients;
 
     let listeI = "";
@@ -76,6 +79,10 @@ console.log(bene)
     let Bénéfices = document.querySelector(`.Bénéfices`)
     Bénéfices.innerHTML+=`${listeI}`
 
+
+
+
+    //------- avis
 
       donne.clients.forEach(clients => {
         console.log(clients.titre);
