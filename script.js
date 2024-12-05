@@ -1,118 +1,113 @@
 fetch("chocolatier.json")
-.then((rep) => {
-    return rep.json
-})
-.then((donne) =>{
-    console.log(donne);
-    donne.forEach(element => {
-        afficher(element);
+    .then((rep) => {
+        return rep.json();
+    })
+    .then((donne) => {
+        console.log(donne);
+        afficher(donne);
+
     });
-});
-// ** Fonction : afficher **
+
 // Rôle : Insérer les code du json
 // Paramètre : 
-// Retour : Aucun (la fonction manipule directement le DOM)
-function afficher(recetteActuelle) {
-    let img = recetteActuelle.img; 
-    let portions = recetteActuelle.portions; 
-    let tpsPreparation = recetteActuelle.tempPreparation; 
-    let tpsCuisson = recetteActuelle.tempCuisson; 
-    let difficulte = recetteActuelle.difficulte;
-    let nomRecette = recetteActuelle.nom; 
-}
+// Retour : Aucun 
+function afficher(donne) {
+    console.log(donne.bouton);
+    console.log(donne.nomEntreprise);
+    console.log(donne.slogan);
+    let bout = donne.bouton;
+    let nom = donne.nomEntreprise;
+    let slogan = donne.slogan;
 
-document.querySelector("#container").innerHTML +=`
-<div class="Container">
-<header class="flex  spaceBetween alignCenter">
-    <img src="/image/logo-chocolat-1.png" alt="">
-    <nav class="navheader">
-        <ul class="flex spaceBetween bold">
-            <li>
-                <a href="">Acceuil</a>
-            </li>
-            <li>
-                <a href="">Produits</a>
-            </li>
-            <li>
-                <a href="">Benefices</a>
-            </li>
-            <li>
-                <a href="">Avis</a>
-            </li>
-        </ul>
-    </nav>
- 
 
-</header>
-<main>
-    <!-- le slogan et le nom (accueil)-->
-    <section>
-        <img src="" alt="">
-        <div>
-            <h2></h2>
-            <h1></h1>
-            <a href=""></a>
-        </div>
-    </section>
 
-        <!--produits-->
-    <section>
-        <h2></h2>
-        <div><img src="" alt="">
-            <h3></h3>
-            <p></p>
-        </div>
-        <div><img src="" alt="">
-            <h3></h3>
-            <p></p>
-        </div>
-        <div><img src="" alt="">
-            <h3></h3>
-            <p></p>
-        </div>
-        <div><img src="" alt="">
-            <h3></h3>
-            <p></p>
-        </div>
-        <div><img src="" alt="">
-            <h3></h3>
-            <p></p>
-        </div>
-        <div><img src="" alt="">
-            <h3></h3>
-            <p></p>
-        </div>
-    </section>
-    <!--benefices-->
-<section>
-        <h2></h2>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <img src="/image/ogo-chocolat-2.png" alt="">
-    </section>
-    <!--avis-->
-<section>
-        <h2></h2>
-        <div>
-            <h4></h4>
-            <p></p>
-            <div></div>
-        </div>
-        <div>
-            <h4></h4>
-            <p></p>
-            <div></div>
-        </div>
-        <div>
-            <h4></h4>
-            <p></p>
-            <div></div>
-        </div>
-    </section>
-</main>
+    let bene = donne.listeBeneficesClients;
 
-<footer></footer>
-</div>
-`
+    let listeI = "";
+console.log(bene)
+
+
+    bene.forEach(benef => {
+       listeI+=`<li>${benef}</li>`
+    });
+    let Bénéfices = document.querySelector(`.Bénéfices`)
+    Bénéfices.innerHTML+=`${listeI}`
+
+
+
+
+
+
+
+    let container = document.querySelector(`.Container`)
+    container.innerHTML += `
+                    <img src="/image/baniereChocolat.png" alt="">
+                  <div>
+                      <h2>${slogan}</h2>
+                      <h1>${nom}</h1>
+                      <a href=""></a>
+                  </div>
+                  `
+
+
+    donne.produits.forEach(prod => {
+        console.log(prod.titre);
+        console.log(prod.presentation);
+        console.log(prod.imageurl);
+
+        let titre = prod.titre;
+        let presen = prod.presentation;
+        let image = prod.imageurl;
+
+        let ContainerProduits = document.querySelector(`.ContainerProduits`)
+        container.innerHTML += `
+        <section class="section">
+        <h2>Nos Produits</h2>
+                    <div>
+              <img
+                src="${image}"
+                alt="">
+              <h3>${titre}</h3>
+              <p>${presen}</p>
+            </div>
+            </section>
+            `
+     });
+     donne.clients.forEach(clients => {
+        console.log(clients.titre);
+        console.log(clients.presentation);
+        console.log(clients.imageurl);
+
+        let nom = clients.nom;
+        let presentation = clients.typePrestation;
+        let commentaire = clients.commentaire;
+        let note =clients.note;
+
+        let ContainerProduits = document.querySelector(`.avis`)
+        container.innerHTML += ` <div>
+            <h4>${nom}</h4>
+            <p>${presentation}</p>
+            <p>${commentaire}</p>
+            <p>${note}</p>
+          </div>
+          <div>
+         `
+     })
+
+
+
+    
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
